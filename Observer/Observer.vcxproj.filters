@@ -18,10 +18,13 @@
     <ClCompile Include="main.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IObserver.cxx">
+    <ClCompile Include="Subject.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ISubject.cxx">
+    <ClCompile Include="ConcreteObserverA.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcreteObserverB.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,7 +32,13 @@
     <ClInclude Include="IObserver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ISubject.h">
+    <ClInclude Include="Subject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcreteObserverA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcreteObserverB.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
