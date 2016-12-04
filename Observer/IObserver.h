@@ -7,7 +7,7 @@ public:
         int value;
     };
 
-    virtual ~IObserver() {};
+    virtual ~IObserver() = default;
 
     virtual void HandleEvent(Event const &e) = 0;
 };

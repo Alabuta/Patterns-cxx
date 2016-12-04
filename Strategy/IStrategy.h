@@ -3,7 +3,7 @@
 class IStrategy {
 public:
 
-    virtual ~IStrategy() {};
+    virtual ~IStrategy() = default;
 
     virtual void Execute() = 0;
 };

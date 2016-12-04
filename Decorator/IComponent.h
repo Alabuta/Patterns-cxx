@@ -3,7 +3,7 @@
 class IComponent {
 public:
 
-    virtual ~IComponent() {};
+    virtual ~IComponent() = default;
 
     virtual void Operation() = 0;
 };
