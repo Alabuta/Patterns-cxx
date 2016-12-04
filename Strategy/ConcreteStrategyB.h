@@ -4,5 +4,5 @@
 class ConcreteStrategyB : public IStrategy {
 public:
 
-    void Execute();
+    void Execute() override;
 };

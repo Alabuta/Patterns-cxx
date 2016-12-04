@@ -4,5 +4,5 @@
 class ConcreteObserverA : public IObserver {
 public:
 
-    void HandleEvent(Event const &e);
+    void HandleEvent(Event const &e) override;
 };

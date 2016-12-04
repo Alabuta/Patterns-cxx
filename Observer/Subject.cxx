@@ -1,5 +1,6 @@
-#include "Subject.h"
 #include <random>
+#include <iostream>
+#include "Subject.h"
 
 
 void Subject::AddObserver(std::shared_ptr<IObserver> const &observer)
@@ -9,7 +10,7 @@ void Subject::AddObserver(std::shared_ptr<IObserver> const &observer)
 
 void Subject::RemoveObserver(std::shared_ptr<IObserver> const &observer)
 {
-    observers_.remove_if([&observer] (std::weak_ptr<IObserver> &p) {
+    observers_.remove_if([&observer] (std::weak_ptr<IObserver> const &p) {
         return observer == p.lock();
     });
 }
@@ -29,4 +30,6 @@ void Subject::NotifyObservers() const
     for (auto const &observer : observers_)
         if (!observer.expired())
             observer.lock()->HandleEvent(e);
+
+    std::cout << std::endl;
 }
