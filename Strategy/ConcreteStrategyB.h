@@ -1,7 +1,7 @@
 #pragma once
 #include "IStrategy.h"
 
-class ConcreteStrategyB : public IStrategy {
+class ConcreteStrategyB final : public IStrategy {
 public:
 
     void Execute() override;

@@ -6,7 +6,6 @@
 class IAbstractFactory {
 public:
 
-    IAbstractFactory() = default;
     virtual ~IAbstractFactory() = default;
 
     virtual AbstractProductA *CreateProductA() const = 0;

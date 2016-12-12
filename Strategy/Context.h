@@ -2,11 +2,10 @@
 #include "memory"
 #include "IStrategy.h"
 
-class Context {
+class Context final {
 public:
 
     Context();
-    ~Context();
 
     void SetStrategy(std::unique_ptr<IStrategy> strategy);
     void UseStrategy();

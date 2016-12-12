@@ -7,7 +7,8 @@ public:
 
     Decorator() = delete;
     Decorator(std::shared_ptr<IComponent> component);
-    virtual ~Decorator();
+
+    virtual ~Decorator() = default;
 
     void Operation() override;
 

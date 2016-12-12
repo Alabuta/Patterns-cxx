@@ -3,8 +3,7 @@
 class AbstractProductA {
 public:
 
-    AbstractProductA() = default;
-    virtual ~AbstractProductA() {};
+    virtual ~AbstractProductA() = default;
 
     virtual void DisplayInfo() const = 0;
 };

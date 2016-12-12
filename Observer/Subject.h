@@ -4,7 +4,7 @@
 
 #include "IObserver.h"
 
-class Subject {
+class Subject final {
 public:
 
     void AddObserver(std::shared_ptr<IObserver> const &observer);
