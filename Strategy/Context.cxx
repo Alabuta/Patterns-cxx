@@ -4,7 +4,7 @@
 Context::Context() : strategy_(nullptr)
 {}
 
-void Context::SetStrategy(std::unique_ptr<IStrategy> strategy)
+void Context::SetStrategy(std::unique_ptr<IStrategy> &&strategy)
 {
     strategy_ = std::move(strategy);
 }

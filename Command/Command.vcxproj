@@ -142,10 +142,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Add.cxx" />
+    <ClCompile Include="Client.cxx" />
+    <ClCompile Include="Invoker.cxx" />
     <ClCompile Include="main.cxx" />
+    <ClCompile Include="Receiver.cxx" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Add.h" />
+    <ClInclude Include="Client.h" />
     <ClInclude Include="ICommand.h" />
+    <ClInclude Include="Invoker.h" />
+    <ClInclude Include="Receiver.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

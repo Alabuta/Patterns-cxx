@@ -29,7 +29,7 @@ int main()
     subject.RemoveObserver(observerB);
 
     subject.NotifyObservers();
-    
+
     _getch();
     return 0;
 }
