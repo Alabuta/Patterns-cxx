@@ -10,7 +10,8 @@ void Subject::AddObserver(std::shared_ptr<IObserver> const &observer)
 
 void Subject::RemoveObserver(std::shared_ptr<IObserver> const &observer)
 {
-    observers_.remove_if([&observer] (std::weak_ptr<IObserver> const &p) {
+    observers_.remove_if([&observer = observer] (std::weak_ptr<IObserver> const &p)
+    {
         return observer == p.lock();
     });
 }
