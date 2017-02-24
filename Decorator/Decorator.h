@@ -5,13 +5,14 @@
 class Decorator : public IComponent {
 public:
 
-    Decorator() = delete;
-    Decorator(std::shared_ptr<IComponent> component);
+    Decorator(std::shared_ptr<IComponent> &&component);
 
     virtual ~Decorator() = default;
 
-    void Operation() override;
-
 protected:
     std::shared_ptr<IComponent> component_;
+
+private:
+
+    Decorator() = delete;
 };
