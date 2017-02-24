@@ -8,7 +8,7 @@ class AbstractProductB;
 class Client final {
 public:
 
-    Client(IAbstractFactory *factory);
+    Client(std::shared_ptr<IAbstractFactory> const &factory);
 
     void DisplayInfo() const;
 

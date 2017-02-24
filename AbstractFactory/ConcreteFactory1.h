@@ -4,6 +4,6 @@
 class ConcreteFactory1 final : public IAbstractFactory {
 public:
 
-    virtual AbstractProductA *CreateProductA() const override;
-    virtual AbstractProductB *CreateProductB() const override;
+    virtual std::unique_ptr<AbstractProductA> CreateProductA() const override;
+    virtual std::unique_ptr<AbstractProductB> CreateProductB() const override;
 };

@@ -3,12 +3,12 @@
 #include "ProductB1.h"
 
 
-AbstractProductA *ConcreteFactory1::CreateProductA() const
+std::unique_ptr<AbstractProductA> ConcreteFactory1::CreateProductA() const
 {
-    return new ProductA1();
+    return std::make_unique<ProductA1>();
 }
 
-AbstractProductB *ConcreteFactory1::CreateProductB() const
+std::unique_ptr<AbstractProductB> ConcreteFactory1::CreateProductB() const
 {
-    return new ProductB1();
+    return std::make_unique<ProductB1>();
 }

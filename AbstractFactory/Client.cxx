@@ -5,10 +5,10 @@
 #include "Client.h"
 
 
-Client::Client(IAbstractFactory *factory)
+Client::Client(std::shared_ptr<IAbstractFactory> const &factory)
 {
-    productA_.reset(factory->CreateProductA());
-    productB_.reset(factory->CreateProductB());
+    productA_.swap(factory->CreateProductA());
+    productB_.swap(factory->CreateProductB());
 }
 
 void Client::DisplayInfo() const
