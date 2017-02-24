@@ -1,5 +1,4 @@
 #include <iostream>
-#include <conio.h>
 
 #define _CRTDBG_MAP_ALLOC
 #include <crtdbg.h>
@@ -21,15 +20,15 @@ int main()
 
     subject.AddObserver(observerA);
     subject.AddObserver(observerB);
-
-    subject.NotifyObservers();
-
+    subject.AddObserver(observerB);
     subject.NotifyObservers();
 
     subject.RemoveObserver(observerB);
-
     subject.NotifyObservers();
 
-    _getch();
+    subject.AddObserver(observerB);
+    subject.NotifyObservers();
+
+    std::cin.get();
     return 0;
 }
