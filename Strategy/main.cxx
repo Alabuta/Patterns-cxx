@@ -1,5 +1,4 @@
 #include <iostream>
-#include <conio.h>
 
 #define _CRTDBG_MAP_ALLOC
 #include <crtdbg.h>
@@ -8,12 +7,12 @@
 #include "ConcreteStrategyA.h"
 #include "ConcreteStrategyB.h"
 
-int main()
+void main()
 {
     // Memory leak detection.
     _CrtSetDbgFlag(_CrtSetDbgFlag(_CRTDBG_REPORT_FLAG) | _CRTDBG_ALLOC_MEM_DF | _CRTDBG_DELAY_FREE_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-    std::unique_ptr<Context> client(new Context());
+    auto client = std::make_unique<Context>();
 
     client->SetStrategy(std::make_unique<ConcreteStrategyA>());
     client->UseStrategy();
@@ -21,6 +20,8 @@ int main()
     client->SetStrategy(std::make_unique<ConcreteStrategyB>());
     client->UseStrategy();
 
-    _getch();
-    return 0;
+    client->SetStrategy(std::make_unique<ConcreteStrategyA>());
+    client->UseStrategy();
+
+    std::cin.get();
 }

@@ -10,6 +10,6 @@ public:
     void SetStrategy(std::unique_ptr<IStrategy> &&strategy);
     void UseStrategy();
 
-protected:
+private:
     std::unique_ptr<IStrategy> strategy_;
 };
