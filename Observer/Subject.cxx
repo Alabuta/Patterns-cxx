@@ -1,18 +1,32 @@
 #include <random>
 #include <iostream>
+#include <algorithm>
+
 #include "Subject.h"
 
 
 void Subject::AddObserver(std::shared_ptr<IObserver> const &observer)
 {
-    observers_.push_front(observer);
+    auto duplicate = std::find_if(observers_.begin(), observers_.end(), [&observer = observer] (auto const &p)
+    {
+        if (!p.expired())
+            return observer == p.lock();
+
+        return false;
+    }) != observers_.cend();
+
+    if (!duplicate)
+        observers_.push_front(observer);
 }
 
 void Subject::RemoveObserver(std::shared_ptr<IObserver> const &observer)
 {
-    observers_.remove_if([&observer = observer] (std::weak_ptr<IObserver> const &p)
+    observers_.remove_if([&observer = observer] (auto const &p)
     {
-        return observer == p.lock();
+        if (!p.expired())
+            return observer == p.lock();
+
+        return false;
     });
 }
 
