@@ -4,5 +4,5 @@
 
 void ConcreteObserverB::HandleEvent(Event const &e)
 {
-    std::cout << e.value << std::endl;
+    std::cout << "ConcreteObserverB: " << e.value << std::endl;
 }
