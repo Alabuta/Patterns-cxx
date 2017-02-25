@@ -5,7 +5,7 @@ class DecoratorA final : public Decorator {
 public:
 
     DecoratorA() = delete;
-    DecoratorA(std::shared_ptr<IComponent> component) : Decorator(std::move(component)) {};
+    DecoratorA(std::shared_ptr<IComponent> component);
 
     void Operation() override;
 };
