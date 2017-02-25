@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Adapter", "Adapter\Adapter.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Facade", "Facade\Facade.vcxproj", "{54541F1B-6FBC-4069-83C1-FE1850704791}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FactoryMethod", "FactoryMethod\FactoryMethod.vcxproj", "{031DABE6-A00E-4D96-A0F0-BAFEC0A1EECA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{54541F1B-6FBC-4069-83C1-FE1850704791}.Release|x64.Build.0 = Release|x64
 		{54541F1B-6FBC-4069-83C1-FE1850704791}.Release|x86.ActiveCfg = Release|Win32
 		{54541F1B-6FBC-4069-83C1-FE1850704791}.Release|x86.Build.0 = Release|Win32
+		{031DABE6-A00E-4D96-A0F0-BAFEC0A1EECA}.Debug|x64.ActiveCfg = Debug|x64
+		{031DABE6-A00E-4D96-A0F0-BAFEC0A1EECA}.Debug|x64.Build.0 = Debug|x64
+		{031DABE6-A00E-4D96-A0F0-BAFEC0A1EECA}.Debug|x86.ActiveCfg = Debug|Win32
+		{031DABE6-A00E-4D96-A0F0-BAFEC0A1EECA}.Debug|x86.Build.0 = Debug|Win32
+		{031DABE6-A00E-4D96-A0F0-BAFEC0A1EECA}.Release|x64.ActiveCfg = Release|x64
+		{031DABE6-A00E-4D96-A0F0-BAFEC0A1EECA}.Release|x64.Build.0 = Release|x64
+		{031DABE6-A00E-4D96-A0F0-BAFEC0A1EECA}.Release|x86.ActiveCfg = Release|Win32
+		{031DABE6-A00E-4D96-A0F0-BAFEC0A1EECA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
