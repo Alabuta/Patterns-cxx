@@ -2,7 +2,7 @@
 #include "DecoratorA.h"
 
 
-DecoratorA::DecoratorA(std::shared_ptr<IComponent> component) : Decorator(std::move(component))
+DecoratorA::DecoratorA(std::shared_ptr<IComponent> &&component) : Decorator(std::move(component))
 { }
 
 void DecoratorA::Operation()

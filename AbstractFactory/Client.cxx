@@ -7,8 +7,8 @@
 
 Client::Client(std::shared_ptr<IAbstractFactory> const &factory)
 {
-    productA_.swap(factory->CreateProductA());
-    productB_.swap(factory->CreateProductB());
+    productA_ = factory->CreateProductA();
+    productB_ = factory->CreateProductB();
 }
 
 void Client::DisplayInfo() const
