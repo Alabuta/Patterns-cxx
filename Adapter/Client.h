@@ -6,8 +6,8 @@ class Client final {
 public:
 
     void AddTarget(std::shared_ptr<ITarget> const &target);
-    void RequestFromTarget() const;
+    void RequestFromTarget();
 
 private:
-    std::shared_ptr<ITarget> target_;
+    std::weak_ptr<ITarget> target_;
 };
