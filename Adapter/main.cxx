@@ -15,7 +15,7 @@ void main()
     Client client;
 
     {
-        auto target = std::make_shared<Adapter>(std::make_unique<Adaptee>());
+        auto target = std::make_shared<Adapter>(std::make_shared<Adaptee>());
 
         client.AddTarget(target);
         client.RequestFromTarget();

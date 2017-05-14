@@ -1,15 +1,17 @@
 #pragma once
 #include <memory>
+#include <gsl/gsl>
+
 #include "ITarget.h"
 #include "Adaptee.h"
 
 class Adapter final : public ITarget {
 public:
 
-    Adapter(std::unique_ptr<Adaptee> &&adaptee);
+    Adapter(gsl::not_null<std::shared_ptr<Adaptee>> &&adaptee);
 
     void Request() const override;
 
 private:
-    std::unique_ptr<Adaptee> adaptee_;
+    std::shared_ptr<Adaptee> adaptee_;
 };

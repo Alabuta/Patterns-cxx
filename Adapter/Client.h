@@ -1,11 +1,13 @@
 #pragma once
 #include <memory>
+#include <gsl/gsl>
+
 #include "ITarget.h"
 
 class Client final {
 public:
 
-    void AddTarget(std::shared_ptr<ITarget> const &target);
+    void AddTarget(gsl::not_null<std::shared_ptr<ITarget>> const &target);
     void RequestFromTarget();
 
 private:

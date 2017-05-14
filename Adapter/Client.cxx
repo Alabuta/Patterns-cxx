@@ -1,9 +1,9 @@
 #include "Client.h"
 
 
-void Client::AddTarget(std::shared_ptr<ITarget> const &target)
+void Client::AddTarget(gsl::not_null<std::shared_ptr<ITarget>> const &target)
 {
-    target_ = target;
+    target_ = target.get();
 }
 
 void Client::RequestFromTarget()
@@ -13,8 +13,6 @@ void Client::RequestFromTarget()
         return;
     }
 
-    auto target = target_.lock();
-
-    if (target)
+    if (auto target = target_.lock()/*; !target_.expired()*/)
         target->Request();
 }
