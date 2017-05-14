@@ -1,5 +1,6 @@
 #pragma once
-#include "memory"
+#include <memory>
+
 #include "IStrategy.h"
 
 class Context final {
