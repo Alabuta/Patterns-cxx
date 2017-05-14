@@ -5,7 +5,7 @@
 #include "Client.h"
 
 
-Client::Client(std::shared_ptr<IAbstractFactory> const &factory)
+Client::Client(gsl::not_null<std::shared_ptr<IAbstractFactory>> const &factory)
 {
     productA_ = factory->CreateProductA();
     productB_ = factory->CreateProductB();
