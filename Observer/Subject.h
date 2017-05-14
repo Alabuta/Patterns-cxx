@@ -1,17 +1,19 @@
 #pragma once
 #include <memory>
-#include <forward_list>
+#include <list>
+
+#include <gsl/gsl>
 
 #include "IObserver.h"
 
 class Subject final {
 public:
 
-    void AddObserver(std::shared_ptr<IObserver> const &observer);
-    void RemoveObserver(std::shared_ptr<IObserver> const &observer);
+    void AddObserver(gsl::not_null<std::shared_ptr<IObserver>> const &observer);
+    void RemoveObserver(gsl::not_null<std::shared_ptr<IObserver>> const &observer);
 
     void NotifyObservers() const;
 
 private:
-    std::forward_list<std::weak_ptr<IObserver>> observers_;
+    std::list<std::weak_ptr<IObserver>> observers_;
 };

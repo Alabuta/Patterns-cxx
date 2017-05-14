@@ -7,6 +7,7 @@
 #include "IObserver.h"
 #include "ConcreteObserverA.h"
 #include "ConcreteObserverB.h"
+#include "ConcreteObserverC.h"
 
 void main()
 {
@@ -17,10 +18,16 @@ void main()
 
     auto observerA = std::make_shared<ConcreteObserverA>();
     auto observerB = std::make_shared<ConcreteObserverB>();
+    auto observerC = std::make_shared<ConcreteObserverC>();
 
     subject.AddObserver(observerA);
     subject.AddObserver(observerB);
-    subject.AddObserver(observerB);
+    subject.AddObserver(observerB); // Attempting to add a duplicate observer.
+    subject.AddObserver(observerC);
+
+    subject.NotifyObservers();
+
+    observerC = nullptr; // Expired pointer to observer case.
     subject.NotifyObservers();
 
     subject.RemoveObserver(observerB);

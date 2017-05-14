@@ -5,33 +5,30 @@
 #include "Subject.h"
 
 
-void Subject::AddObserver(std::shared_ptr<IObserver> const &_observer)
+void Subject::AddObserver(gsl::not_null<std::shared_ptr<IObserver>> const &_observer)
 {
-    for (auto &observer : observers_)
-        if (observer.expired())
-            observer.reset();
-
-    auto duplicate = std::find_if(observers_.begin(), observers_.end(), [&observer = _observer] (auto const &p)
+    observers_.remove_if([] (auto const &observer)
     {
-        if (auto locked = p.lock(); locked)
+        return observer.expired();
+    });
+
+    auto duplicate = std::find_if(observers_.begin(), observers_.end(), [&observer = _observer.get()] (auto const &p)
+    {
+        if (auto locked = p.lock()/*; !locked.expired()*/) // TODO: if statement with initializer isn't supported yet
             return observer == locked;
 
         return false;
     }) != observers_.cend();
 
     if (!duplicate)
-        observers_.push_front(_observer);
+        observers_.push_front(_observer.get());
 }
 
-void Subject::RemoveObserver(std::shared_ptr<IObserver> const &_observer)
+void Subject::RemoveObserver(gsl::not_null<std::shared_ptr<IObserver>> const &_observer)
 {
-    for (auto &observer : observers_)
-        if (observer.expired())
-            observer.reset();
-
-    observers_.remove_if([&observer = _observer] (auto const &p)
+    observers_.remove_if([&observer = _observer.get()] (auto const &p)
     {
-        if (auto locked = p.lock(); locked)
+        if (auto locked = p.lock()/*; !locked.expired()*/)
             return observer == locked;
 
         return false;
@@ -50,14 +47,9 @@ void Subject::NotifyObservers() const
         value(mt)
     };
 
-    std::shared_ptr<IObserver> temp;
-
-    for (auto const &observer : observers_) {
-        temp = observer.lock();
-
-        if (temp)
-            temp->HandleEvent(e);
-    }
+    for (auto const &observer : observers_)
+        if (auto locked = observer.lock()/*; !locked.expired()*/)
+            locked->HandleEvent(e);
 
     std::cout << std::endl;
 }
