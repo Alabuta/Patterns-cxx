@@ -1,11 +1,13 @@
 #pragma once
 #include <memory>
+#include <gsl/gsl>
+
 #include "IComponent.h"
 
 class Decorator : public IComponent {
 public:
 
-    Decorator(std::shared_ptr<IComponent> &&component);
+    Decorator(gsl::not_null<std::shared_ptr<IComponent>> &&component);
 
     virtual ~Decorator() = default;
 

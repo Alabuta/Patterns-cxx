@@ -4,7 +4,7 @@
 class DecoratorB final : public Decorator {
 public:
 
-    DecoratorB(std::shared_ptr<IComponent> &&component);
+    DecoratorB(gsl::not_null<std::shared_ptr<IComponent>> &&component);
 
     void Operation() override;
 };
