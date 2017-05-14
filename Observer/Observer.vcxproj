@@ -145,12 +145,14 @@
   <ItemGroup>
     <ClCompile Include="ConcreteObserverA.cxx" />
     <ClCompile Include="ConcreteObserverB.cxx" />
+    <ClCompile Include="ConcreteObserverC.cxx" />
     <ClCompile Include="Subject.cxx" />
     <ClCompile Include="main.cxx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConcreteObserverA.h" />
     <ClInclude Include="ConcreteObserverB.h" />
+    <ClInclude Include="ConcreteObserverC.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="Subject.h" />
   </ItemGroup>

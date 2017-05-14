@@ -27,6 +27,9 @@
     <ClCompile Include="ConcreteObserverB.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ConcreteObserverC.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IObserver.h">
@@ -39,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ConcreteObserverB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcreteObserverC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
