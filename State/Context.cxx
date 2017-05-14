@@ -1,49 +1,46 @@
+#include <functional>
+#include <type_traits>
+
 #include "Context.h"
 #include "StateA.h"
 #include "StateB.h"
 #include "StateC.h"
 #include "StateD.h"
 
-
-Context::Context() : currentState_(std::move(std::make_unique<StateA>()))
+Context::Context(std::unique_ptr<IState> &&_initialState) : currentState_(std::move(_initialState))
 { }
 
 bool Context::MoveToStateA()
 {
-    auto result = currentState_->MoveToStateA();
-
-    if (result)
-        currentState_.reset(new StateA);
-
-    return result;
+    return ChangeState<StateA>(&IState::MoveToStateA);
 }
 
 bool Context::MoveToStateB()
 {
-    auto result = currentState_->MoveToStateB();
-
-    if (result)
-        currentState_.reset(new StateB);
-
-    return result;
+    return ChangeState<StateB>(&IState::MoveToStateB);
 }
 
 bool Context::MoveToStateC()
 {
-    auto result = currentState_->MoveToStateC();
-
-    if (result)
-        currentState_.reset(new StateC);
-
-    return result;
+    return ChangeState<StateC>(&IState::MoveToStateC);
 }
 
 bool Context::MoveToStateD()
 {
-    auto result = currentState_->MoveToStateD();
+    return ChangeState<StateD>(&IState::MoveToStateD);
+}
+
+template<class T>
+bool Context::ChangeState(std::function<bool(IState &)> method)
+{
+    if (!std::is_base_of_v<IState, T>) {
+        return false;
+    }
+
+    auto result = method(*currentState_);
 
     if (result)
-        currentState_.reset(new StateD);
+        currentState_ = std::make_unique<T>();
 
     return result;
 }
