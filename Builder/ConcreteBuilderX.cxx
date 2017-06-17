@@ -1,7 +1,7 @@
 #include "ConcreteBuilderX.h"
 
 
-ConcreteBuilderX::ConcreteBuilderX() : product_(new Product())
+ConcreteBuilderX::ConcreteBuilderX() : product_(std::move(std::make_unique<Product>()))
 { }
 
 void ConcreteBuilderX::BuildPartA()

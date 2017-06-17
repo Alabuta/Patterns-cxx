@@ -14,7 +14,7 @@ void Subject::AddObserver(gsl::not_null<std::shared_ptr<IObserver>> const &_obse
 
     auto duplicate = std::find_if(observers_.begin(), observers_.end(), [&observer = _observer.get()] (auto const &p)
     {
-        if (auto locked = p.lock()/*; !locked.expired()*/) // TODO: if statement with initializer isn't supported yet
+        if (auto locked = p.lock(); locked)
             return observer == locked;
 
         return false;
@@ -28,7 +28,7 @@ void Subject::RemoveObserver(gsl::not_null<std::shared_ptr<IObserver>> const &_o
 {
     observers_.remove_if([&observer = _observer.get()] (auto const &p)
     {
-        if (auto locked = p.lock()/*; !locked.expired()*/)
+        if (auto locked = p.lock(); locked)
             return observer == locked;
 
         return false;
@@ -48,7 +48,7 @@ void Subject::NotifyObservers() const
     };
 
     for (auto const &observer : observers_)
-        if (auto locked = observer.lock()/*; !locked.expired()*/)
+        if (auto locked = observer.lock(); locked)
             locked->HandleEvent(e);
 
     std::cout << std::endl;

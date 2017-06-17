@@ -5,7 +5,7 @@
 
 void Product::AddPart(std::string &&_part)
 {
-    parts_.push_back(std::move(_part));
+    parts_.emplace_back(std::move(_part));
 }
 
 void Product::Show() const
