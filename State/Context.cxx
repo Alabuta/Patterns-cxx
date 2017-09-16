@@ -30,13 +30,9 @@ bool Context::MoveToStateD()
     return ChangeState<StateD>(&IState::MoveToStateD);
 }
 
-template<class T>
+template<class T, typename std::enable_if_t<std::is_base_of_v<IState, T>>...>
 bool Context::ChangeState(std::function<bool(IState &)> method)
 {
-    if (!std::is_base_of_v<IState, T>) {
-        return false;
-    }
-
     auto result = method(*currentState_);
 
     if (result)

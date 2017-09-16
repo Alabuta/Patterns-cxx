@@ -18,6 +18,6 @@ public:
 private:
     std::unique_ptr<IState> currentState_;
 
-    template<class T>
+    template<class T, typename std::enable_if_t<std::is_base_of_v<IState, T>>...>
     bool ChangeState(std::function<bool(IState &)> method);
 };
