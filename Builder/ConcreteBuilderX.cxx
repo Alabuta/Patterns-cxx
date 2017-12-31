@@ -6,12 +6,14 @@ ConcreteBuilderX::ConcreteBuilderX() : product_(std::move(std::make_unique<Produ
 
 void ConcreteBuilderX::BuildPartA()
 {
-    product_->AddPart("Part A : Builder X");
+	using namespace std::string_literals;
+    product_->AddPart("Part A : Builder X"s);
 }
 
 void ConcreteBuilderX::BuildPartB()
 {
-    product_->AddPart("Part B : Builder X");
+	using namespace std::string_literals;
+    product_->AddPart("Part B : Builder X"s);
 }
 
 std::unique_ptr<Product> ConcreteBuilderX::GetProduct()

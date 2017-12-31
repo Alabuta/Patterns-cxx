@@ -3,10 +3,6 @@
 #include "Product.h"
 
 
-void Product::AddPart(std::string &&_part)
-{
-    parts_.emplace_back(std::move(_part));
-}
 
 void Product::Show() const
 {
