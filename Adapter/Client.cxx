@@ -13,6 +13,6 @@ void Client::RequestFromTarget()
         return;
     }
 
-    if (auto target = target_.lock(); target)
+    if (auto &&target = target_.lock(); target)
         target->Request();
 }

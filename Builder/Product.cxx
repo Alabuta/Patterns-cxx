@@ -10,6 +10,6 @@ void Product::AddPart(std::string &&_part)
 
 void Product::Show() const
 {
-    for (auto const &part : parts_)
+    for (auto &&part : parts_)
         std::cout << part << std::endl;
 }

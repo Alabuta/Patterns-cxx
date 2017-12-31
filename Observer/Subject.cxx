@@ -7,14 +7,14 @@
 
 void Subject::AddObserver(gsl::not_null<std::shared_ptr<IObserver>> _observer)
 {
-    observers_.remove_if([] (auto const &observer)
+    observers_.remove_if([] (auto &&observer)
     {
         return observer.expired();
     });
 
-    auto duplicate = std::find_if(observers_.begin(), observers_.end(), [&observer = _observer.get()] (auto const &p)
+    auto duplicate = std::find_if(observers_.begin(), observers_.end(), [&observer = _observer.get()] (auto &&p)
     {
-        if (auto locked = p.lock(); locked)
+        if (auto &&locked = p.lock(); locked)
             return observer == locked;
 
         return false;
@@ -26,9 +26,9 @@ void Subject::AddObserver(gsl::not_null<std::shared_ptr<IObserver>> _observer)
 
 void Subject::RemoveObserver(gsl::not_null<std::shared_ptr<IObserver>> _observer)
 {
-    observers_.remove_if([&observer = _observer.get()] (auto const &p)
+    observers_.remove_if([&observer = _observer.get()] (auto &&p)
     {
-        if (auto locked = p.lock(); locked)
+        if (auto &&locked = p.lock(); locked)
             return observer == locked;
 
         return false;
@@ -47,7 +47,7 @@ void Subject::NotifyObservers() const
         value(mt)
     };
 
-    for (auto const &observer : observers_)
+    for (auto &&observer : observers_)
         if (auto locked = observer.lock(); locked)
             locked->HandleEvent(e);
 
