@@ -22,7 +22,9 @@ void main()
 
     std::cout << std::endl;
 
-    DecoratorB b(std::make_shared<DecoratorA>(a));
+	auto pre_b = std::make_shared<DecoratorA>(a);
+
+    DecoratorB b(pre_b);
     b.Operation();
 
     std::cin.get();
