@@ -8,7 +8,7 @@
 class Adapter final : public ITarget {
 public:
 
-    Adapter(gsl::not_null<std::shared_ptr<Adaptee>> &&adaptee);
+    Adapter(gsl::not_null<std::shared_ptr<Adaptee>> adaptee);
 
     void Request() const override;
 

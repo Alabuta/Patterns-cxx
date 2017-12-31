@@ -2,5 +2,5 @@
 #include "Decorator.h"
 
 
-Decorator::Decorator(gsl::not_null<std::shared_ptr<IComponent>> &&component) : component_(std::move(component))
+Decorator::Decorator(gsl::not_null<std::shared_ptr<IComponent>> component) : component_(component)
 { }

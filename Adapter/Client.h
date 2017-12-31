@@ -7,7 +7,7 @@
 class Client final {
 public:
 
-    void AddTarget(gsl::not_null<std::shared_ptr<ITarget>> const &target);
+    void AddTarget(gsl::not_null<std::shared_ptr<ITarget>> target);
     void RequestFromTarget();
 
 private:

@@ -1,7 +1,7 @@
 #include "Client.h"
 
 
-void Client::AddTarget(gsl::not_null<std::shared_ptr<ITarget>> const &target)
+void Client::AddTarget(gsl::not_null<std::shared_ptr<ITarget>> target)
 {
     target_ = target.get();
 }

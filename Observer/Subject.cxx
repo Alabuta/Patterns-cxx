@@ -5,7 +5,7 @@
 #include "Subject.h"
 
 
-void Subject::AddObserver(gsl::not_null<std::shared_ptr<IObserver>> const &_observer)
+void Subject::AddObserver(gsl::not_null<std::shared_ptr<IObserver>> _observer)
 {
     observers_.remove_if([] (auto const &observer)
     {
@@ -24,7 +24,7 @@ void Subject::AddObserver(gsl::not_null<std::shared_ptr<IObserver>> const &_obse
         observers_.push_front(_observer.get());
 }
 
-void Subject::RemoveObserver(gsl::not_null<std::shared_ptr<IObserver>> const &_observer)
+void Subject::RemoveObserver(gsl::not_null<std::shared_ptr<IObserver>> _observer)
 {
     observers_.remove_if([&observer = _observer.get()] (auto const &p)
     {
