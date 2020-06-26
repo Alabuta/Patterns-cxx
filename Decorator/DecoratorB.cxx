@@ -2,7 +2,7 @@
 #include "DecoratorB.h"
 
 
-DecoratorB::DecoratorB(gsl::not_null<std::shared_ptr<IComponent>> component) : Decorator(component)
+DecoratorB::DecoratorB(std::shared_ptr<IComponent> component) : Decorator(component)
 { }
 
 void DecoratorB::Operation()

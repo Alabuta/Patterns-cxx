@@ -1,6 +1,5 @@
 #pragma once
 #include <memory>
-#include <gsl/gsl>
 
 class IAbstractFactory;
 class AbstractProductA;
@@ -9,7 +8,7 @@ class AbstractProductB;
 class Client final {
 public:
 
-    Client(gsl::not_null<std::shared_ptr<IAbstractFactory>> factory);
+    Client(std::shared_ptr<IAbstractFactory> factory);
 
     void DisplayInfo() const;
 

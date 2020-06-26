@@ -2,7 +2,7 @@
 #include "Adapter.h"
 
 
-Adapter::Adapter(gsl::not_null<std::shared_ptr<Adaptee>> adaptee) : adaptee_(adaptee)
+Adapter::Adapter(std::shared_ptr<Adaptee> adaptee) : adaptee_(adaptee)
 { }
 
 void Adapter::Request() const
