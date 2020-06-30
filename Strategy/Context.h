@@ -8,7 +8,7 @@ public:
 
     Context();
 
-    void SetStrategy(std::unique_ptr<IStrategy> &&strategy);
+    void SetStrategy(std::unique_ptr<IStrategy> strategy);
     void UseStrategy();
 
 private:

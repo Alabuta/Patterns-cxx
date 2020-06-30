@@ -1,12 +1,15 @@
 #include <iostream>
 #include <array>
+
 #include <string>
+using namespace std::string_literals;
 
 #include "Client.h"
 
+
 void Client::DrawFieldAndHero()
 {
-    std::array<std::string, 5> field = {"\t _ _ _ _ \n", "\t|_|_|_|_|\n", "\t|_|_|_|_|\n", "\t|_|_|_|_|\n", "\t|_|_|_|_|\n"};
+    auto field = std::array{"\t _ _ _ _ \n"s, "\t|_|_|_|_|\n"s, "\t|_|_|_|_|\n"s, "\t|_|_|_|_|\n"s, "\t|_|_|_|_|\n"s};
 
     field[2][4] = '@';
 

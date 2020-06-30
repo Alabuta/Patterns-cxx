@@ -7,7 +7,7 @@
 #include "StateC.h"
 #include "StateD.h"
 
-Context::Context(std::unique_ptr<IState> &&_initialState) : currentState_(std::move(_initialState))
+Context::Context(std::unique_ptr<IState> _initialState) : currentState_{std::move(_initialState)}
 { }
 
 bool Context::MoveToStateA()

@@ -2,7 +2,7 @@
 #include "Receiver.h"
 
 
-Add::Add(Receiver *receiver, float operand) : operand_(operand)
+Add::Add(Receiver *receiver, float operand) : operand_{operand}
 {}
 
 void Add::Execute()

@@ -14,7 +14,7 @@ void Subject::AddObserver(std::shared_ptr<IObserver> _observer)
 
     auto duplicate = std::find_if(observers_.begin(), observers_.end(), [_observer] (auto &&p)
     {
-        if (auto &&locked = p.lock(); locked)
+        if (auto locked = p.lock(); locked)
             return _observer == locked;
 
         return false;
@@ -28,7 +28,7 @@ void Subject::RemoveObserver(std::shared_ptr<IObserver> _observer)
 {
     observers_.remove_if([_observer] (auto &&p)
     {
-        if (auto &&locked = p.lock(); locked)
+        if (auto locked = p.lock(); locked)
             return _observer == locked;
 
         return false;
@@ -47,7 +47,7 @@ void Subject::NotifyObservers() const
         value(mt)
     };
 
-    for (auto &&observer : observers_)
+    for (auto observer : observers_)
         if (auto locked = observer.lock(); locked)
             locked->HandleEvent(e);
 

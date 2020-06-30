@@ -17,14 +17,14 @@ void main()
 
     std::cout << std::endl;
 
-    DecoratorA a(std::make_shared<ConcreteComponent>(component));
+    DecoratorA a{std::make_shared<ConcreteComponent>(component)};
     a.Operation();
 
     std::cout << std::endl;
 
 	auto pre_b = std::make_shared<DecoratorA>(a);
 
-    DecoratorB b(pre_b);
+    DecoratorB b{pre_b};
     b.Operation();
 
     std::cin.get();

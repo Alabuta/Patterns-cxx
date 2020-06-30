@@ -10,7 +10,7 @@
 class Context final : public IContext {
 public:
 
-    Context(std::unique_ptr<IState> &&initialState);
+    Context(std::unique_ptr<IState> initialState);
 
     bool MoveToStateA() override;
     bool MoveToStateB() override;
